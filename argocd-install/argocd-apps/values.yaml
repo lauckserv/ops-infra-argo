@@ -1,0 +1,88 @@
+argocd-apps:
+  applications:
+    argocd:
+      namespace: argo
+      destination:
+        namespace: argo
+        server: https://kubernetes.default.svc
+      project: argocd
+      source:
+        helm:
+          version: v3
+          valueFiles:
+            - values.yaml
+        path: argocd-install/argocd
+        repoURL: https://github.com/lauckserv/ops-infra-argo
+        targetRevision: HEAD
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+    argocd-apps:
+      namespace: argo
+      destination:
+        namespace: cattle-system
+        server: https://kubernetes.default.svc
+      project: argocd
+      source:
+        helm:
+          version: v3
+          valueFiles:
+            - values.yaml
+        path: argocd-install/argocd-apps
+        repoURL: https://github.com/lauckserv/ops-infra-argo
+        targetRevision: HEAD
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+    argocd-appsets:
+      namespace: argo
+      destination:
+        namespace: argo
+        server: https://kubernetes.default.svc
+      project: argocd
+      source:
+        path: apps
+        repoURL: https://github.com/lauckserv/ops-infra-argo
+        targetRevision: HEAD
+        directory:
+          recurse: true
+          jsonnet: {}
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+    argocd-projects:
+      namespace: argo
+      destination:
+        namespace: argo
+        server: https://kubernetes.default.svc
+      project: argocd
+      source:
+        path: projects
+        repoURL: https://github.com/lauckserv/ops-infra-argo
+        targetRevision: HEAD
+        directory:
+          recurse: true
+          jsonnet: {}
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+  projects:
+    argocd:
+      namespace: argo
+      additionalLabels: {}
+      additionalAnnotations: {}
+      description: Argocd Project
+      sourceRepos:
+        - "*"
+      destinations:
+        - namespace: argo
+          server: https://kubernetes.default.svc
+        - namespace: cattle-system
+          server: https://kubernetes.default.svc
+      clusterResourceWhitelist:
+        - group: "*"
+          kind: "*"
+      orphanedResources:
+        warn: false

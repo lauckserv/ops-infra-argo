@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-tools
+  labels:
+    lauckserv.io/category: cluster-tools
+spec:
+  destination:
+    namespace: argo
+    server: https://kubernetes.default.svc
+  project: argocd
+  source:
+    path: cluster-tools/appSets
+    repoURL: https://github.com/lauckserv/ops-infra-argo
+    targetRevision: HEAD
+    directory:
+      recurse: true
+      jsonnet: {}
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true

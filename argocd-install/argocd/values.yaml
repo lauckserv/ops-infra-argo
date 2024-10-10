@@ -1,0 +1,23 @@
+argo-cd:
+  global:
+    domain: argo.lauckserv.net
+  server:
+    ingress:
+      enabled: true
+      hostname: argo.lauckserv.net
+      ingressClassName: nginx
+      annotations:
+        nginx.ingress.kubernetes.io/service-upstream: "true"
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+  configs:
+    cm:
+      url: https://argo.lauckserv.net
+    params:
+      server.insecure: true
+      server.repo.server.strict.tls: false
+      server.rootpath: ""
+    repositories:
+      argo-helm:
+        url: https://argoproj.github.io/argo-helm
+        name: argo-helm
+        type: helm

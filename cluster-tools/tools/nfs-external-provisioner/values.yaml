@@ -1,0 +1,8 @@
+nfs-subdir-external-provisioner:
+  podAnnotations:
+    linkerd.io/inject: enabled
+  parameters:
+    archiveOnDelete: "true"
+  reclaimPolicy: Delete
+  allowVolumeExpansion: true
+  volumeBindingMode: Immediate
