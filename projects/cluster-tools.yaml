@@ -18,7 +18,7 @@ spec:
     - namespace: "*"
       server: https://rancher.lauckserv.net/k8s/clusters/c-m-d25gnqct # prod
     - namespace: "*"
-      server: https://rancher.lauckserv.net/k8s/clusters/c-m-kvxk9llq # tools
+      server: https://rancher.lauckserv.net/k8s/clusters/c-m-klrcgt5t # tools
   # Deny all cluster-scoped resources from being created, except for Namespace
   clusterResourceWhitelist:
     - group: "*"
