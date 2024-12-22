@@ -3,19 +3,19 @@ kind: ApplicationSet
 metadata:
   name: cert-manager-tool
   labels:
-    spydersoft.io/category: cluster-tools
+    lauckserv.io/category: cluster-tools
 spec:
   generators:
     - clusters:
         selector:
           matchLabels:
             argocd.argoproj.io/secret-type: cluster
-            spydersoft.io/cert-manager: "true"
+            lauckserv.io/cert-manager: "true"
   template:
     metadata:
       name: "{{ nameNormalized }}-cert-manager"
       labels:
-        spydersoft.io/category: cluster-tools
+        lauckserv.io/category: cluster-tools
     spec:
       project: cluster-tools
       source:
