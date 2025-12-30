@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: nfs-external-provisioner-tool
+  name: nfs-external-provisioner-tool-nosquash
   labels:
     lauckserv.io/category: cluster-tools
 spec:
