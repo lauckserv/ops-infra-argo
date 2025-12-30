@@ -5,5 +5,4 @@ nfs-subdir-external-provisioner:
   storageClass:
     name: nfs-nosquash
     defaultClass: false
-    provisionerName: k8s-sigs.io/tools-nosquash
     pathPattern: ${.PVC.namespace}-${.PVC.name}
