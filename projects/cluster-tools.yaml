@@ -21,6 +21,8 @@ spec:
       server: https://rancher.lauckserv.net/k8s/clusters/c-m-klrcgt5t # tools
     - namespace: "*"
       server: https://192.168.225.13:6443 # tempssd
+    - namespace: "*"
+      server: https://192.168.225.12:6443 # prodssd
   # Deny all cluster-scoped resources from being created, except for Namespace
   clusterResourceWhitelist:
     - group: "*"
