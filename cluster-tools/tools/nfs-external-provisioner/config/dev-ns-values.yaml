@@ -1,8 +1,0 @@
-nfs-subdir-external-provisioner:
-  nfs:
-    server: 192.168.144.232
-    path: /volume1/kubernetes-nosquash/dev
-  storageClass:
-    name: nfs-nosquash
-    defaultClass: false
-    pathPattern: ${.PVC.namespace}-${.PVC.name}

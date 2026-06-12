@@ -14,8 +14,6 @@ spec:
   # Only permit applications to deploy to the guestbook namespace in the same cluster
   destinations:
     - namespace: "*"
-      server: https://rancher.lauckserv.net/k8s/clusters/c-m-m59fwj8l # dev
-    - namespace: "*"
       server: https://192.168.225.13:6443 # tempssd
   # Deny all cluster-scoped resources from being created, except for Namespace
   clusterResourceWhitelist:
