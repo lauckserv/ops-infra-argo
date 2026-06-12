@@ -15,6 +15,8 @@ spec:
   destinations:
     - namespace: "*"
       server: https://rancher.lauckserv.net/k8s/clusters/c-m-m59fwj8l # dev
+    - namespace: "*"
+      server: https://rancher.lauckserv.net/k8s/clusters/c-m-p5cdbdzp # tempssd
   # Deny all cluster-scoped resources from being created, except for Namespace
   clusterResourceWhitelist:
     - group: "*"
