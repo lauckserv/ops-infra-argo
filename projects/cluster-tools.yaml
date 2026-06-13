@@ -16,8 +16,6 @@ spec:
     - namespace: "*"
       server: https://kubernetes.default.svc
     - namespace: "*"
-      server: https://rancher.lauckserv.net/k8s/clusters/c-m-d25gnqct # prod
-    - namespace: "*"
       server: https://rancher.lauckserv.net/k8s/clusters/c-m-klrcgt5t # tools
     - namespace: "*"
       server: https://192.168.225.13:6443 # tempssd
